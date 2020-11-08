@@ -1,0 +1,16 @@
+language: java
+jdk:
+  - openjdk11
+script:
+  - ./gradlew build check
+
+# Due to a peculiarity of dependency caching in Gradle, the following lines
+# need to be added to avoid uploading the cache after every build.
+# https://docs.travis-ci.com/user/languages/java/#caching
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
