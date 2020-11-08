@@ -4,6 +4,7 @@ jdk:
 script:
   - ./gradlew build check
   - ./gradlew codeCoverageReport
+  - ./gradlew jacocoTestCoverageVerification
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) # Upload code coverage reports
