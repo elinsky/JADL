@@ -3,7 +3,7 @@ jdk:
   - openjdk11
 script:
   - ./gradlew build check
-  - ./gradlew jacocoTestReport
+  - ./gradlew codeCoverageReport
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) # Upload code coverage reports
