@@ -3,10 +3,9 @@ package com.brianelinsky.graph;
 import com.google.common.graph.Graph;
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.MutableGraph;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DepthFirstSearchTests {
 
