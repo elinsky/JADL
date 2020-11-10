@@ -5,18 +5,18 @@ import com.google.common.graph.Graph;
 import java.util.HashMap;
 
 /**
- * Given a graph and a source vertex, DepthFirstSearch calculates which vertices and how many are
- * connected to the source vertex. The nodes in your graph must be usable as map keys.
+ * Given a graph and a source vertex, DepthFirstSearch calculates which vertices are reachable from
+ * the source vertex, and how many that is. The nodes in your graph must be usable as map keys.
  * https://github.com/google/guava/wiki/GraphsExplained#graph-elements-nodes-and-edges.
  *
  * <p>Heavily influenced by https://algs4.cs.princeton.edu/41graph/DepthFirstSearch.java.html
  */
-public class DepthFirstSearch<T> {
+public class DepthFirstSearch<T> implements Search<T> {
   private final HashMap<T, Boolean> marked; // Is there a path from 's' to 'v'?
   private int count; // number of vertices connected to 's'
 
   /**
-   * Computes the vertices that are connected to the {@code source} vertex.
+   * Computes the vertices that are reachable from the {@code source} vertex.
    *
    * @param graph The graph.
    * @param source The source vertex.
@@ -34,6 +34,7 @@ public class DepthFirstSearch<T> {
    * @return {@code true} if there exists a path between {@code source} and {@code target}.
    *     Otherwise returns {@code false}.
    */
+  @Override
   public boolean marked(T target) {
     return marked.get(target);
   }
@@ -43,6 +44,7 @@ public class DepthFirstSearch<T> {
    *
    * @return the number of vertices connected to the {@code source} vertex.
    */
+  @Override
   public int count() {
     return count;
   }
