@@ -35,13 +35,8 @@ public class DepthFirstSearchPathsTests {
   @ParameterizedTest(name = "{index} Source vertex: {0}, Connected vertex: {1}")
   @CsvSource({"0, 6", "3, 6", "6 ,1"})
   public void given_SourceVertex_When_Count_Then_HowManyConnected(int source, int expected) {
-    // Given
     DepthFirstSearchPaths<Integer> dfsp = new DepthFirstSearchPaths<Integer>(tinyGraph, source);
-
-    // When
     int actual = dfsp.count();
-
-    // Then
     assertEquals(expected, actual);
   }
 
@@ -49,13 +44,8 @@ public class DepthFirstSearchPathsTests {
   @CsvSource({"0, 4 ,true", "6, 4, false", "1, 1, true"})
   public void given_SourceVertex_Then_IsTargetVertexMarked(
       int source, int target, boolean expected) {
-    // Given
     DepthFirstSearchPaths<Integer> dfsp = new DepthFirstSearchPaths<Integer>(tinyGraph, source);
-
-    // When
     boolean actual = dfsp.marked(target);
-
-    // Then
     assertEquals(expected, actual);
   }
 
@@ -117,5 +107,13 @@ public class DepthFirstSearchPathsTests {
         });
   }
 
-  // TODO Test hasPathTo
+  @ParameterizedTest
+  @CsvSource({"2, 2 ,true", "5, 1, true", "6, 0, false", "3, 6, false", "3, 0, true"})
+  public void testHasPathTo(
+          int source, int target, boolean expected) {
+    DepthFirstSearchPaths<Integer> dfsp = new DepthFirstSearchPaths<Integer>(tinyGraph, source);
+    boolean actual = dfsp.hasPathTo(target);
+    assertEquals(expected, actual);
+  }
+
 }
