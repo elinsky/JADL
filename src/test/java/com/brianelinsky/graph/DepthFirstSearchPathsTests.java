@@ -116,4 +116,6 @@ public class DepthFirstSearchPathsTests {
           Iterable<Integer> actual = dfsp.pathTo(6);
         });
   }
+
+  // TODO Test hasPathTo
 }

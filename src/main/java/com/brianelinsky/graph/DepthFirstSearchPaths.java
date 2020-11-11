@@ -61,6 +61,7 @@ public class DepthFirstSearchPaths<T> implements Search<T>, Paths<T> {
    */
   @Override
   public boolean hasPathTo(T target) {
+    // TODO
     return false;
   }
 
